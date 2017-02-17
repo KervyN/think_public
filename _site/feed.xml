@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kervyn.de</title>
+    <description>Life of KervyN aka Bo</description>
+    <link>https://www.kervyn.de</link>
+    <atom:link href="https://www.kervyn.de/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>I've earned this.</title>
+        <description>
+          Adultpoints und was ich damit vorhabe - 
+          Meine Frau und ich haben spaßeshalber angefangen unsere Adultpoints zu zählen. Alles fing mit einem Comicstrip von Tumbledrycomics an den wir beide sehr passend fanden. Wir fingen also an uns gegenseitig Nachrichten mit Bilder zu schicken. Mal waren es die leeren Mülleimer in der Küche, mal die aufgehängte Wäsche und hatte dann...
+        </description>
+        <pubDate>Thu, 16 Feb 2017 00:00:00 +0100</pubDate>
+        <link>https://www.kervyn.de/2017-02-16-adultpoints-i-earned-this/</link>
+        <guid isPermaLink="true">https://www.kervyn.de/2017-02-16-adultpoints-i-earned-this/</guid>
+      </item>
+    
+      <item>
+        <title>Github als Mirror für ausgewählte Repositories nutzen</title>
+        <description>
+          
+          Zuerst möchte ich sagen, was für ein großartiges Tool git ist. Selbst für einen Laien wie mich. Natürlich wird auch der Inhalt dieses Blogs via git gepflegt und selbst wenn man keinen eigenen source code management (SCM) Server hat kann es einem bei allen möglichen Arbeiten helfen. Große Binary Large...
+        </description>
+        <pubDate>Thu, 02 Feb 2017 00:00:00 +0100</pubDate>
+        <link>https://www.kervyn.de/2017-02-02-github-gitmirror/</link>
+        <guid isPermaLink="true">https://www.kervyn.de/2017-02-02-github-gitmirror/</guid>
+      </item>
+    
+      <item>
+        <title>Papierformate für Menschen ohne Abakus</title>
+        <description>
+          
+          Kennt Ihr das? Man unterhält sich mit jemandem und derjenige versteht offensichtlich nicht was Ihr Ihm sagen wollt? Manchmal habe ich das Gefühl, dass die Leute mich wirklich verarschen wollen. Hier ist mal ein kleiner Auszug von einem Gespräch, welches ich mit meiner Mutter geführt habe. Es ging um Flyer...
+        </description>
+        <pubDate>Mon, 22 Jun 2015 00:00:00 +0200</pubDate>
+        <link>https://www.kervyn.de/2015-06-22-papierformate-fuer-anfaenger/</link>
+        <guid isPermaLink="true">https://www.kervyn.de/2015-06-22-papierformate-fuer-anfaenger/</guid>
+      </item>
+    
+      <item>
+        <title>Schleichfahrt</title>
+        <description>
+          Old games never die. - 
+          Ist es nicht merkwürdig wie manches mal die Gedanken schweifen und man am Ende etwas völlig Anderes macht als man eigentlich wollte? Ich sitze vor meinem Rechner zuhause und krame in meinem GoG Account nach einem ruhigen Spiel. Es ist spät, fast schon früh, meine Frau schläft schon. Dank bestem...
+        </description>
+        <pubDate>Mon, 15 Jun 2015 00:00:00 +0200</pubDate>
+        <link>https://www.kervyn.de/2015-06-15-schleichfahrt/</link>
+        <guid isPermaLink="true">https://www.kervyn.de/2015-06-15-schleichfahrt/</guid>
+      </item>
+    
+  </channel>
+</rss>

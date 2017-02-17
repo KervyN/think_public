@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Github als Mirror für ausgewählte Repositories nutzen</title>
+
+  <meta name="author" content="KervyN" />
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="kervyn.de - Life of KervyN aka Bo" href="/feed.xml" />
+
+  
+
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Github als Mirror für ausgewählte Repositories nutzen" />
+  
+
+   
+  <meta property="og:description" content="Zuerst möchte ich sagen, was für ein großartiges Tool git ist. Selbst für einen Laien wie mich. Natürlich wird auch der Inhalt dieses Blogs via git gepflegt und selbst wenn man keinen eigenen source code management (SCM) Server hat kann es einem bei allen möglichen Arbeiten helfen. Große Binary Large...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="https://www.kervyn.de/2017-02-02-github-gitmirror/" />
+  <link rel="canonical" href="https://www.kervyn.de/2017-02-02-github-gitmirror/" />
+  
+
+  
+  <meta property="og:image" content="https://www.kervyn.de/img/logo.png" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@K3rvyN" />
+  <meta name="twitter:creator" content="@K3rvyN" />
+
+  
+  <meta name="twitter:title" content="Github als Mirror für ausgewählte Repositories nutzen" />
+  
+
+  
+  <meta name="twitter:description" content="Zuerst möchte ich sagen, was für ein großartiges Tool git ist. Selbst für einen Laien wie mich. Natürlich wird auch der Inhalt dieses Blogs via git gepflegt und selbst wenn man keinen eigenen source code management (SCM) Server hat kann es einem bei allen möglichen Arbeiten helfen. Große Binary Large...">
+  
+
+  
+  <meta name="twitter:image" content="https://www.kervyn.de/img/logo.png" />
+  
+
+</head>
+
+
+  <body>
+
+    
+  
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="https://www.kervyn.de">kervyn.de</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+            
+
+
+
+
+
+<a href="/aboutme">Über mich</a>
+
+          </li>
+        
+        
+      </ul>
+    </div>
+
+	
+	<div class="avatar-container">
+	  <div class="avatar-img-border">
+	    <a href="https://www.kervyn.de ">
+	      <img class="avatar-img" src="/img/logo.png" />
+		</a>
+	  </div>
+	</div>
+	
+
+  </div>
+</nav>
+
+
+    <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+<header class="header-section ">
+
+<div class="intro-header no-img">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <div class="post-heading">
+          <h1>Github als Mirror für ausgewählte Repositories nutzen</h1>
+		  
+		  
+		  
+		  <span class="post-meta">Posted on February 2, 2017</span>
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+      <article role="main" class="blog-post">
+        <p>Zuerst möchte ich sagen, was für ein großartiges Tool git ist. Selbst für einen Laien wie mich. Natürlich wird auch der Inhalt dieses Blogs via git gepflegt und selbst wenn man keinen eigenen source code management (SCM) Server hat kann es einem bei allen möglichen Arbeiten helfen. Große Binary Large Objects sollte man zwar tunlichst nicht via git versionieren, aber bis auf diesen Umstand kann man git wunderbar als Versionierung jeglicher digitalen Arbeit nutzen. Sehr viele User nutzen <a href="https://github.com">github.com</a> als zentrales SCM und in der Vergangenheit hat sich github.com sehr für die OpenSource Community eingesetzt. Es gibt nur ein winzig kleines Problem. Wenn man keinen bezahlten Account hat, kann man keine privaten, also nicht öffentlichen, Repositories erstellen. Hat man ein Projekt, welches man nicht öffentlich machen will, muss man ein bisschen Geld in die Hand nehmen. <a href="https://github.com/pricing">7$ pro Monat oder 84$ pro Jahr</a>. Das ist jetzt erstmal nicht sonderlich viel. Vor allem wenn ich mir meine sonstigen Kosten für derlei Spielereien ansehe. Alleine der Server auf dem dieser Blog läuft, kostet mich 5EUR im Monat.</p>
+
+<p>Für alle die sich das Geld sparen wollen, hat sich vor einiger Zeit <a href="https://gitlab.com">Gitlab.com</a> auf die Fahne geschrieben eine Art kostenloses Github zu sein. Das Feature Set ist sehr ähnlich und bietet wohl auch noch Continuous Integration an.</p>
+
+<p>Für mich gibt es aber einige, mehr oder weniger gute, Gründe nicht alles bei Github/Gitlab zu hosten.</p>
+<ol>
+  <li>Die Idee private Repositories nur gegen Bezahlung anzubieten sorgt, zumindest auf <a href="https://github.com">github.com</a> für echte Vielfalt. Da gibt es fast nichts, was es nicht gibt. Dennoch habe ich unterschwellig immer ein ungutes Gefühl. Ich kann nicht sicher sein, dass meine privaten Repositories nicht geleakt werden, zugegeben ist das bei meinen Projekten nicht so wirklich wild, und ich muss mich auf die Leute verlassen, wenn es um Backups geht.</li>
+  <li>Was passiert mit meinen Daten, wenn die Investoren sich dazu entscheiden den Laden zu schließen? Habe ich noch die Chance diese runter zu laden? Muss ich Geld in die Hand nehmen? Wo bekomme ich auf die schnelle einen Ersatz SCM Dienst her?</li>
+  <li>Ich möchte meinen Code gerne bei <a href="https://github.com">github.com</a> haben, anstatt bei <a href="https://gitlab.com">Gitlab.com</a>. Da ich selber so verschwindend wenig Content produziere lohnt sich das Geld einfach nicht. Trotzdem will ich nicht alles öffentlich haben.</li>
+</ol>
+
+<p>Das hat dazu geführt, dass ich einen <a href="https://git.behrens.io">eigenen SCM Server</a> betriebe. Das ist jetzt keine große Magie und funktioniert einfach. Dieser Server ist mein SCM Server. Ich kümmere mich darum und weil es so einfach ist, muss ich mir auch keine Sorgen machen, dass da irgendwer Code rausträgt. Genau was ich für mich will. Und jetzt kommt der eigentliche Clou. Ich kann mit post-receive hooks einzelne Repositories nach github.com pushen.</p>
+
+<p>Zuerst müssen allerdings das Repository bei Github erstellt werden und ein SSH Key hinterlegt sein. Da mein SSH Key doch recht weit verbreitet ist, habe ich auf dem Server einfach einen neuen Key erstellt und diesen unter <code class="highlighter-rouge">~/.ssh/id_rsa</code> abgelegt. Und jetzt einfach folgenden post-receive hook anlegen.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>git push --set-upstream &lt;repository bei Github&gt; master
+</code></pre>
+</div>
+<p>Thats it.</p>
+
+<hr />
+
+<p>Gerade kommt mir der Gedanke ob es nicht eine Möglichkeit gibt mit der API von Github zu arbeiten. In meinem Kopf geistern gerade folgende Gedanken:</p>
+
+<ul>
+  <li>Mittels API das entsprechende Repository erstellen, fall es noch nicht existiert.</li>
+  <li>Einen API Key pro Repository nutzen. (Ich bin mit doch recht sicher, dass das nur mit einem bezahlten Account geht, wenn überhaupt.)</li>
+  <li>Mittels API Pushen. Wahrscheinlich nicht so einfach umzusetzen, wenn man nicht seine Github Zugangsdaten irgendwo klartext bunkern will.</li>
+</ul>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tag/git">git</a>
+          
+            <a href="/tag/coding">coding</a>
+          
+            <a href="/tag/snippets">snippets</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+
+  <!--- Share on Twitter -->
+  
+    <a href="https://twitter.com/intent/tweet?text=Github+als+Mirror+f%C3%BCr+ausgew%C3%A4hlte+Repositories+nutzen+https://www.kervyn.de/2017-02-02-github-gitmirror/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Facebook -->
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.kervyn.de/2017-02-02-github-gitmirror/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+    </a>
+  
+
+  <!--- Share on Google Plus -->
+  
+
+  <!--- Share on LinkedIn -->
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://www.kervyn.de/2017-02-02-github-gitmirror/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+    </a>
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2015-06-22-papierformate-fuer-anfaenger/" data-toggle="tooltip" data-placement="top" title="Papierformate für Menschen ohne Abakus">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2017-02-16-adultpoints-i-earned-this/" data-toggle="tooltip" data-placement="top" title="I've earned this.">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+          <li>
+            <a href="https://github.com/KervyN" title="GitHub">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+          <li>
+            <a href="https://twitter.com/K3rvyN" title="Twitter">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+	  
+      
+		  
+          <li>
+            <a href="mailto:bb@kervyn.de" title="Email me">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-envelope fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+          
+		  
+		  
+		  
+      
+      
+      
+      
+          <li>
+            <a href="https://open.spotify.com/user/k3rvyn" title="Spotify">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-spotify fa-stack-1x fa-inverse"></i>
+              </span>
+            </a>
+          </li>
+       
+      
+		  
+		  <li>
+			<a href="/feed.xml" title="RSS">
+			  <span class="fa-stack fa-lg">
+				<i class="fa fa-circle fa-stack-2x"></i>
+				<i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+			  </span>
+			</a>
+		  </li>
+          
+        </ul>
+        <p class="copyright text-muted">
+		  KervyN
+		  &nbsp;&bull;&nbsp;
+		  2017
+
+		  
+	    </p>
+	        <!-- Please don't remove this, keep my open source work credited :) -->
+		<p class="theme-by text-muted">
+		  Theme by
+		  <a href="http://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+		</p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+      	if (typeof jQuery == 'undefined') {
+      	  document.write('<script src="/js/jquery-1.11.2.min.js"></scr' + 'ipt>');
+      	}
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+	<script src="/js/main.js"></script>
+    
+  
+
+
+
+
+  
+  </body>
+</html>
