@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
 
-  <title>Schleichfahrt</title>
+  <title>Der Homeserver als Time Machine Backup</title>
 
   <meta name="author" content="KervyN" />
 
   
-  <meta name="description" content="Old games never die.">
+  <meta name="description" content="Wie man mittels Netatalk afp und Time Machine unter Ubuntu implementiert.">
   
 
   <link rel="alternate" type="application/rss+xml" title="kervyn.de - Life of KervyN aka Bo" href="/feed.xml" />
@@ -54,19 +54,19 @@
   
 
   
-  <meta property="og:title" content="Schleichfahrt" />
+  <meta property="og:title" content="Der Homeserver als Time Machine Backup" />
   
 
    
-  <meta property="og:description" content="Old games never die.">
+  <meta property="og:description" content="Wie man mittels Netatalk afp und Time Machine unter Ubuntu implementiert.">
   
 
 
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="https://www.kervyn.de/2015-06-15-schleichfahrt/" />
-  <link rel="canonical" href="https://www.kervyn.de/2015-06-15-schleichfahrt/" />
+  <meta property="og:url" content="https://www.kervyn.de/2017-03-09-timemashinebackup-mit-netatalk/" />
+  <link rel="canonical" href="https://www.kervyn.de/2017-03-09-timemashinebackup-mit-netatalk/" />
   
 
   
@@ -80,11 +80,11 @@
   <meta name="twitter:creator" content="@K3rvyN" />
 
   
-  <meta name="twitter:title" content="Schleichfahrt" />
+  <meta name="twitter:title" content="Der Homeserver als Time Machine Backup" />
   
 
   
-  <meta name="twitter:description" content="Old games never die.">
+  <meta name="twitter:description" content="Wie man mittels Netatalk afp und Time Machine unter Ubuntu implementiert.">
   
 
   
@@ -204,15 +204,15 @@
     <div class="row">
       <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
         <div class="post-heading">
-          <h1>Schleichfahrt</h1>
+          <h1>Der Homeserver als Time Machine Backup</h1>
 		  
 		    
-			<h2 class="post-subheading">Old games never die.</h2>
+			<h2 class="post-subheading">Wie man mittels Netatalk afp und Time Machine unter Ubuntu implementiert.</h2>
 			
 		  
 		  
 		  
-		  <span class="post-meta">Posted on June 15, 2015</span>
+		  <span class="post-meta">Posted on March 9, 2017</span>
 		  
         </div>
       </div>
@@ -229,25 +229,101 @@
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
 
       <article role="main" class="blog-post">
-        <p>Ist es nicht merkwürdig wie manches mal die Gedanken schweifen und man am Ende etwas völlig Anderes macht als man eigentlich wollte?</p>
+        <p>Bis auf meinen Zocker Rechner und den Homeserver bin ich schon ein richtiger Appleleptiker. Zwei Macbook’s und zwei iPhones schwirren hier durch das Netz. Im Gegensatz zu mir ist meine Frau allerdings auf Backups durch Time Machine angewiesen. Meine Arbeit ist zu 90% auf Server, die restlichen 10% liegen im git oder auf dem Fileserver. Meine Frau hingegen muss als promovierende Wissenschaftlerin mit allerlei Dokumenten, Daten und Grafiken jonglieren. Solche Daten sind weder für ein SCM geeignet, noch ist es sonderlich komfortabel diese immer mit dem Fileserver abzugleichen. Und gerade hier spielt das Time Machine Backup seine Stärken aus, inklusive Versionierung der Daten. Man könnte es als maximal unkompliziert für den End User betrachten. Anschließen -&gt; Click -&gt; Backup läuft und funktioniert. Manchmal macht Apple halt doch was richtig.</p>
 
-<p>Ich sitze vor meinem Rechner zuhause und krame in meinem GoG Account nach einem ruhigen Spiel.
-Es ist spät, fast schon früh, meine Frau schläft schon. Dank bestem Gamingzubehör bin ich im Besitz einer mechanischen Tastatur, einer recht lauten Maus, eines großen Mauspads und eines recht günstigen Tisches. Die leichte, aber dicke, Tischplatte macht aus jedem Klick ein <a href="https://youtu.be/nu0R96OZy6w?t=10s">„mitten in der Nacht eine DVD mit THX Logo auf einem 7.1 Soundsystem“</a>-KLICK!. Also ein Spiel bei dem es mehr auf den Kopf als auf die Klickgeschwindigkeit ankommt.
-So durchsuche ich also GoG, Steam, Humblebundle, etc. um nach einem langen Prozess der Entscheidungsfindung Gabriel Knight zu wählen. Ein großartiges altes Spiel. Zum Glück kann ich mich noch an den einen oder anderen Fetzen der Geschichte erinnern und muss nicht jeder Unterhaltung im Detail folgen. Während ich also mitten in der Nacht vor dem Rechner sitze und mich über die schwüle Luft ärgere komme ich irgendwie auf das Spiel Schleichfahrt. Was für ein grandioser Titel. Das habe ich früher, ca. ’97 / ’98, bis zum erbrechen gespielt. Stunde um Stunde. Tag um Tag.</p>
+<p>Warum keine andere Lösung?</p>
 
 <blockquote>
-  <p>Ob es das bei GoG gibt?</p>
+  <p>Backblaze bietet verschlüsselte Backups an. 
+Diverse Sync Tools können automatisch ganze Verzeichnisse abgleichen. 
+Ein eigener Owncloud/Nextcloud Server kann auch Daten synchron halten.</p>
 </blockquote>
 
-<p>Und so beginnt meine fieberhafte Suche nach dem gewünschten Artikel. Ich habe zwar noch irgendwo eine CD rumliegen aber mein Laufwerk funktioniert schon seit Jahren nicht mehr. Warum auch. Ich bekomme ja alles Online. Außer Schleichfahrt. Die Aquanox „Serie“ habe ich schon in meinem Steam Account und es gibt auch schon die <a href="http://www.gamestar.de/spiele/aquanox-deep-descent/artikel/aquanox_deep_descent,51489,3059051.html">Ankündigung eines neuen Teils</a> in der Serie. „Ein neuer Teil? Die letzten beiden waren ja nicht so der Renner. Zumindest nicht im Vergleich zu Schleichfahrt.“ Ich fange an mich mit dem neuen Teil zu beschäftigen, nebenher läuft auf dem zweiten Monitor ein <a href="https://www.youtube.com/watch?v=aKtjVOZwKCo">„Let’s Play“ von Schleichfahrt</a>. Ich lese vom <a href="http://aang-maps.de/wbb/index.php?page=Thread&amp;threadID=298">Helmut Halfmann’s Tod</a>. Dem Vater des Universums und der Geschichte von Schleichfahrt sowie Aquanox. Man gedenke nicht auf der Handlung aufzubauen, aus Respekt vor seinem Werk. „Wow! Vielleicht lese ich mal mehr in dem Forum. Da gibt es bestimmt einige Schätze die entdeckt werden wollen.“ Mein Spiel habe ich aber immer noch nicht. Es scheint als würde es dieses Spiel nicht als Download on demand geben.</p>
+<p>Weil es eben nicht maximal unkompliziert für den End User ist, welcher dann wieder dringend Support braucht.</p>
 
-<p>Und so kommt es wie es kommen muss. Irgendwann steckt meine Frau total verpennt Ihren Kopf ins Zimmer und fragt wann ich denn ins Bett komme. „Ich komme gleich. Ich muss nur noch alle Kisten wieder einräumen und diese CD auf dem Rechner sichern.“ Das Büro sieht total verwüstet aus. Alle möglichen Boxen und Kisten stehen geöffnet rum, in der Mitte sitze ich mit meinem Notebook, welches noch ein funktionierendes Laufwerk hat, und erstelle ein ISO Image.</p>
+<p>Aktuell hat Sie eine externe Festplatte, welche ab und zu abgeschlossen wird und dann erstmal den ganzen Tag lang Dateien abgleicht, Größen berechnet und Backups schreibt. Zudem ist es nur sehr sporadisch und im Falle einer Katastrophe, ja ich versuche meine Backups Desaster Safe zu halten, wahrscheinlich noch am gleichen Ort wie das Notebook. Eine Timecapsule hat zwar den Vorteil, dass Backups kontinuierlich gemacht werden, ist aber auch stationär Zuhause. Zudem kostet ist der Preis extrem hoch und mit nur einer Platte nicht sonderlich ausfallsicher.
+Genau hier kommt der Homeserver ins Spiel:</p>
+<ul>
+  <li>Dauerhaft online für kontinuierliche Backups</li>
+  <li>Mehrere Festplatten bei denen die Daten mittels parity checks auf Konsistenz geprüft werden.</li>
+  <li>Verschlüsseltes Offsitebackups zu Amazon Clouddrive.</li>
+</ul>
 
-<p>Beim warten kommt mir der Gedanke, dass es Kompatibilitätsprobleme geben könnte. Schließlich ist der Titel von ’96 und der Rechner von 2013. Also beginne ich nach dem Problem suchen, bevor es überhaupt auftritt. DosBOX könnte helfen. ScummVM eher nicht. Laut <a href="http://www.dosbox.com/comp_list.php?letter=S">dieser Liste</a> ist es nicht Spielbar. Aber der Kommentar darin gibt grünes Licht. Ich muss mich da dann wohl selber durchwurschteln. Es ist inzwischen fast Morgengrauen, ich habe DosBOX und eine Kopie der Schleichfahrt-CD. Bevor ich jetzt loslege kümmere ich mich noch um die Ordnung, bzw. versuche Sie wiederherzustellen. So viele Kisten mit Boxen von Spielen. Getreu dem Motto „Was nicht passt wird passend gemacht“ schaffte ich es dennoch das Zimmer wieder in einen Vorzeigbaren Zustand zu versetzen. Ich setze mich wieder an den Rechner und will gerade den Browser schließen, da fällt mein Blick auf „Die Siedler“.</p>
+<p>Da die Time Machine nicht mit simplen Dummspeichern arbeiten kann (warum kann ich nicht einfach ein Blockdevice auf einem NFS ablegen?) wird hier spezielle Software benötigt. Netatalk wird mir hier gute Dienste leisten.</p>
 
-<blockquote>
-  <p>Ob es das bei GoG gibt? …</p>
-</blockquote>
+<p>So, genug Prosa.</p>
+
+<p>Aktuell liefert Ubuntu 16.04 leider eine recht veraltete Version von Netatalk aus und in den PPA’s lässt sich auch nichts Besseres finden. Getreu dem Motto <a href="https://www.youtube.com/watch?v=rouFxEsflCM">“Neu ist immer besser”</a> kompiliere ich mir die aktuelle Version halt selber.</p>
+
+<p>Zuerst die <a href="https://sourceforge.net/projects/netatalk/files/">neue Version</a> ziehen und die benötigten Pakete zum kompilieren.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>wget http://prdownloads.sourceforge.net/netatalk/netatalk-3.1.10.tar.gz?download -O netatalk-3.1.10.tar.gz
+
+tar -xzf netatalk-3.1.10.tar.gz
+cd netatalk-3.1.10
+
+apt install build-essential libevent-dev libssl-dev \ 
+  libgcrypt-dev libkrb5-dev libpam0g-dev libwrap0-dev \
+  libdb-dev libtdb-dev libmysqlclient-dev avahi-daemon \
+  libavahi-client-dev libacl1-dev libldap2-dev libcrack2-dev \
+  systemtap-sdt-dev libdbus-1-dev libdbus-glib-1-dev libglib2.0-dev \
+  libio-socket-inet6-perl tracker libtracker-sparql-1.0-dev \
+  libtracker-miner-1.0-dev
+</code></pre>
+</div>
+
+<p>Es empfiehlt sich die Compilieroptionen mittels <code class="highlighter-rouge">./configure --help</code> zu prüfen.</p>
+
+<p>Da ich zuhause keine Domäne, LDAP oder andersartige Anmeldung am Server nutze, habe ich bewusst auf die Module PAM, LDAP und Kerberos verzichtet. Auch muss man auf die tracker Version achten. Diese sollte(!) zwar 1.0 sein, kann aber je nach Installation abweichen. <code class="highlighter-rouge">pkg-config --list-all | grep tracker</code></p>
+<div class="highlighter-rouge"><pre class="highlight"><code>./configure \
+--prefix=/srv/netatalk/bin/3.1.10 \
+--without-pam \
+--with-init-style=debian-systemd \
+--without-libevent \
+--without-tdb \
+--without-kerberos \
+--without-ldap \
+--with-cracklib \
+--with-dbus-daemon=/usr/bin/dbus-daemon \
+--with-dbus-sysconf-dir=/etc/dbus-1/system.d \
+--with-tracker-pkgconfig-version=1.0
+
+make
+make install 
+</code></pre>
+</div>
+
+<p>Ich nutze eine sehr einfache afp.conf.</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>;
+; Netatalk 3.x configuration file
+;
+
+[Global]
+hostname    = mein.server.example.com
+log file    = /var/log/netatalk.log
+log level   = default:warn
+spotlight   = yes
+
+
+[TimeMachine]
+time machine    = yes
+path        = /srv/netatalk/storage
+valid users     = @timemachine
+; 500 GB (units of MB)
+vol size limit  = 500000
+</code></pre>
+</div>
+
+<p>Abschließend noch ein paar Gedanken dazu:</p>
+<ul>
+  <li>User lassen sich so nicht in einzelene Verzeichnisse sperren. Dafür muss pro User ein separater Share konfiguriert werden. Für zwei User kann man das machen, bringt aber wenig.</li>
+  <li>Will man Netatalk groß ausrollen, empfiehlt sich ein Script welches die Shares baut.</li>
+  <li>Wir haben uns in der Firma dagegen entschieden. Jeder Mac User bekommt eine 1TB Festplatte. Das ist deutlich günstiger und wartungsärmer als 100TB Netzwerkspeicher.</li>
+</ul>
+
+<p>Todo:</p>
+<ul>
+  <li>Testen ob ein restore problemlos funktioniert.</li>
+</ul>
 
       </article>
 
@@ -256,11 +332,13 @@ So durchsuche ich also GoG, Steam, Humblebundle, etc. um nach einem langen Proze
           Tags:
           
           
-            <a href="/tag/zocken">zocken</a>
+            <a href="/tag/howto">howto</a>
           
-            <a href="/tag/ognd">ognd</a>
+            <a href="/tag/ubuntu">ubuntu</a>
           
-            <a href="/tag/gog">gog</a>
+            <a href="/tag/netatalk">netatalk</a>
+          
+            <a href="/tag/apple">apple</a>
           
           
         </div>
@@ -277,10 +355,10 @@ So durchsuche ich also GoG, Steam, Humblebundle, etc. um nach einem langen Proze
 
       <ul class="pager blog-pager">
         
-        
-        <li class="next">
-          <a href="/2015-06-22-papierformate-fuer-anfaenger/" data-toggle="tooltip" data-placement="top" title="Papierformate für Menschen ohne Abakus">Next Post &rarr;</a>
+        <li class="previous">
+          <a href="/2017-02-16-adultpoints-i-earned-this/" data-toggle="tooltip" data-placement="top" title="I've earned this.">&larr; Previous Post</a>
         </li>
+        
         
       </ul>
 

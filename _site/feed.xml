@@ -7,6 +7,17 @@
     <atom:link href="https://www.kervyn.de/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Der Homeserver als Time Machine Backup</title>
+        <description>
+          Wie man mittels Netatalk afp und Time Machine unter Ubuntu implementiert. - 
+          Bis auf meinen Zocker Rechner und den Homeserver bin ich schon ein richtiger Appleleptiker. Zwei Macbook’s und zwei iPhones schwirren hier durch das Netz. Im Gegensatz zu mir ist meine Frau allerdings auf Backups durch Time Machine angewiesen. Meine Arbeit ist zu 90% auf Server, die restlichen 10% liegen im...
+        </description>
+        <pubDate>Thu, 09 Mar 2017 00:00:00 +0100</pubDate>
+        <link>https://www.kervyn.de/2017-03-09-timemashinebackup-mit-netatalk/</link>
+        <guid isPermaLink="true">https://www.kervyn.de/2017-03-09-timemashinebackup-mit-netatalk/</guid>
+      </item>
+    
+      <item>
         <title>I've earned this.</title>
         <description>
           Adultpoints und was ich damit vorhabe - 
