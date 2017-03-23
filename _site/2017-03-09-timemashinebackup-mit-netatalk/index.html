@@ -295,13 +295,14 @@ make install
 <p>Ich nutze eine sehr einfache afp.conf.</p>
 <div class="highlighter-rouge"><pre class="highlight"><code>;
 ; Netatalk 3.x configuration file
+; Disabled spotlight, because of MASSIVE CPU usage
 ;
 
 [Global]
 hostname    = mein.server.example.com
 log file    = /var/log/netatalk.log
 log level   = default:warn
-spotlight   = yes
+;spotlight   = yes
 
 
 [TimeMachine]
